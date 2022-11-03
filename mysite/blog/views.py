@@ -1,9 +1,25 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Post
+from .models import Post, Comment
+from .forms import CommentForm
 from django.http import Http404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.views.generic import ListView
+from django.views.decorators.http import require_POST
+
 
 # Create your views here.
+class PostListView(ListView):
+
+    """
+    Alternative post list view
+    """
+
+    queryset = Post.published.all()
+    context_object_name = 'posts'
+    paginate_by = 3
+    template_name = 'blog/post/list.xhtml'
+
+
 def post_list(request):
     
     post_list = Post.published.all()
@@ -34,3 +50,15 @@ def post_detail(request, year, month, day, post):
 
     return render(request, 'blog/post/detail.xhtml', {'post': post})
 
+@require_POST
+def post_comment(request, post_id):
+    post = get_object_or_404(Post, id=post_id, status=Post.Status.PUBLISHED)
+    comment = None
+
+    # comment was posted
+    form = CommentForm(data=request.POST)
+    if form.is_valid():
+        comment = form.save(commint=False)
+        comment.post = post
+        comment.save()
+    return render(request, 'blog/post/comment.xhtml', {'post': post, 'form': form, 'comment': comment})
