@@ -48,7 +48,12 @@ def post_detail(request, year, month, day, post):
                             publish__month=month, 
                             publish__day=day)
 
-    return render(request, 'blog/post/detail.xhtml', {'post': post})
+    # list active comments
+    comments = post.comments.filter(active=True)
+    # comments form
+    form = CommentForm()
+
+    return render(request, 'blog/post/detail.xhtml', {'post': post, 'comments': comments, 'form': form})
 
 @require_POST
 def post_comment(request, post_id):
@@ -58,7 +63,7 @@ def post_comment(request, post_id):
     # comment was posted
     form = CommentForm(data=request.POST)
     if form.is_valid():
-        comment = form.save(commint=False)
+        comment = form.save(commit=False)
         comment.post = post
         comment.save()
     return render(request, 'blog/post/comment.xhtml', {'post': post, 'form': form, 'comment': comment})
