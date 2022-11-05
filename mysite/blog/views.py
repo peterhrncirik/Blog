@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Post, Comment
-from .forms import CommentForm
+from django.contrib.postgres.search import TrigramSimilarity
+from .forms import CommentForm, SearchForm
 from django.http import Http404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import ListView
@@ -77,3 +78,18 @@ def post_comment(request, post_id):
         comment.post = post
         comment.save()
     return render(request, 'blog/post/comment.xhtml', {'post': post, 'form': form, 'comment': comment})
+
+
+def post_search(request):
+
+    form = SearchForm()
+    query = None
+    results = []
+
+    if 'query' in request.GET:
+        form = SearchForm(request.GET)
+        if form.is_valid():
+            query = form.cleaned_data['query']
+            results = Post.published.annotate(similarity=TrigramSimilarity('title', query)).filter(similarity__gt=0.1).order_by('-similarity')
+
+    return render(request, 'blog/post/search.xhtml', {'form': form, 'query': query, 'results': results})
