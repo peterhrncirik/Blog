@@ -11,16 +11,9 @@ from django.db.models import Count
 
 
 # Create your views here.
-class PostListView(ListView):
+def index(request):
 
-    """
-    Alternative post list view
-    """
-
-    queryset = Post.published.all()
-    context_object_name = 'posts'
-    paginate_by = 3
-    template_name = 'blog/post/list.xhtml'
+    return render(request, 'index.xhtml')
 
 
 def post_list(request, tag_slug=None):
