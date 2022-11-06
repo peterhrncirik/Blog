@@ -43,15 +43,59 @@
             </div>
     </form>
 
-    <div class="row my-5">
-        <h4>Recent blog posts</h4>
-        {% show_latest_posts 3 %}
+    <div class="row mt-5 mb-2">
+        <h4>✍️ Recent blog posts</h4>
+            {% for post in latest_posts %}
+            <div class="list-group m-1">
+                <a href="{{ post.get_absolute_url }}" class="list-group-item list-group-item-action" aria-current="true">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{ post.title }}</h5>
+                    <!-- <small>{{ post.creted }}</small> -->
+                  </div>
+                  <p class="mb-1 text-white-50">{{ post.body|truncatewords_html:10 }}</p>
+                </a>
+              </div>
+            {% endfor %}
     </div>
 
-    <div class="row my-5">
-        <h4>Recent book notes</h4>
-        {% show_latest_posts 3 %}
-    </div>
+    <div class="row">
+        <h4>📚 Recent book notes</h4>
+        <div class="row my-3">
+            <div class="col-3">
+                <a href="" class="link">
+                    <div class="card">
+                    
+                      <img src="../static/images/fc.jpg" class="card-img" alt="...">
+                    </div>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="" class="link">
+                    <div class="card">
+                    
+                      <img src="../static/images/ego.jpg" class="card-img" alt="...">
+                    </div>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="" class="link">
+                    <div class="card">
+                    
+                      <img src="../static/images/medit.jpg" class="card-img" alt="...">
+                    </div>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="" class="link">
+                    <div class="card">
+                    
+                      <img src="../static/images/freak.jpg" class="card-img" alt="...">
+                    </div>
+                </a>
+            </div>
+              
+        </div>
+          
 
 
     

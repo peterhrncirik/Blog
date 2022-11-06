@@ -13,7 +13,8 @@ from django.db.models import Count
 # Create your views here.
 def index(request):
 
-    return render(request, 'index.xhtml')
+    latest_posts = Post.published.order_by('-publish')[:3]
+    return render(request, 'index.xhtml', {'latest_posts': latest_posts})
 
 
 def post_list(request, tag_slug=None):
