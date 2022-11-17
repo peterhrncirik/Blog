@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Post, Comment
+from .models import Post, Comment, Book
 from django.contrib.postgres.search import TrigramSimilarity
 from .forms import CommentForm, SearchForm
 from django.http import Http404
@@ -11,12 +11,14 @@ from django.db.models import Count
 
 
 # Create your views here.
+
+# Main page
 def index(request):
 
     latest_posts = Post.published.order_by('-publish')[:3]
-    return render(request, 'index.xhtml', {'latest_posts': latest_posts})
+    return render(request, 'index.html', {'latest_posts': latest_posts})
 
-
+# Blog section
 def post_list(request, tag_slug=None):
     
     post_list = Post.published.all()
@@ -38,7 +40,7 @@ def post_list(request, tag_slug=None):
         # page num out-of-range
         posts = paginator.page(paginator.num_pages)
 
-    return render(request, 'blog/post/list.xhtml', {'posts': posts, 'tag': tag, 'tags': tags})
+    return render(request, 'blog/post/list.html', {'posts': posts, 'tag': tag, 'tags': tags})
 
 def post_detail(request, year, month, day, post):
 
@@ -59,7 +61,7 @@ def post_detail(request, year, month, day, post):
     similar_posts = Post.published.filter(tags__in=post_tags_ids).exclude(id=post.id)
     similar_posts = similar_posts.annotate(same_tags=Count('tags')).order_by('-same_tags', '-publish')[:4]
 
-    return render(request, 'blog/post/detail.xhtml', {'post': post, 'comments': comments, 'form': form, 'similar_posts': similar_posts})
+    return render(request, 'blog/post/detail.html', {'post': post, 'comments': comments, 'form': form, 'similar_posts': similar_posts})
 
 @require_POST
 def post_comment(request, post_id):
@@ -72,7 +74,7 @@ def post_comment(request, post_id):
         comment = form.save(commit=False)
         comment.post = post
         comment.save()
-    return render(request, 'blog/post/comment.xhtml', {'post': post, 'form': form, 'comment': comment})
+    return render(request, 'blog/post/comment.html', {'post': post, 'form': form, 'comment': comment})
 
 
 def post_search(request):
@@ -87,4 +89,11 @@ def post_search(request):
             query = form.cleaned_data['query']
             results = Post.published.annotate(similarity=TrigramSimilarity('title', query)).filter(similarity__gt=0.1).order_by('-similarity')
 
-    return render(request, 'blog/post/search.xhtml', {'form': form, 'query': query, 'results': results})
+    return render(request, 'blog/post/search.html', {'form': form, 'query': query, 'results': results})
+
+# Books section
+def books(request):
+
+    books = Book.objects.all()
+
+    return render(request, 'books/books.html', {'books': books})

@@ -17,4 +17,6 @@ urlpatterns = [
     path('search/', views.post_search, name='post_search'),
 
     # Books
+   path('books/', views.books, name='books'),
+#    path('book/<slug:book>/', views.book_detail, name='book_detail'),
 ]

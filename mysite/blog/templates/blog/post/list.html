@@ -1,4 +1,4 @@
-{% extends 'blog/base.xhtml' %}
+{% extends 'blog/base.html' %}
 {% load blog_tags %}
 {% block title %}My Blog{% endblock %}
 {% block content %}
@@ -46,5 +46,5 @@
         <h2>Posts tagged with "{{ tag.name }}"</h2>
     {% endif %}
     
-    {% include 'pagination.xhtml' with page=posts %} -->
+    {% include 'pagination.html' with page=posts %} -->
 {% endblock %}

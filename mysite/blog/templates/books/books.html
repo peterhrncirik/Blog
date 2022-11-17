@@ -1,0 +1,32 @@
+{% extends 'blog/base.html' %}
+{% block title %}My Books{% endblock %}
+{% block content %}
+<div class="row my-5">
+    <div class="col">
+    <h1>Books</h1>
+    <p> Some of the most important lessons I have learned are from books I have read. <br/> The habit of reading books and writing down the key insights have been life-changing.<br/>
+         
+    <p> I'm sharing my notes with you, in hopes that you will get as much from them as I have. </p>
+
+    <p> Feel free to add me on GoodReads to see which books I'm reading. </p>
+
+    <p> The latest book is The 7 Habits of Highly Effective People by Stephen R. Covey. </p>
+
+    <p> 📕 Click on the book title or image to read my notes. I have included a short summary of my thoughts on each book, yet omitted ratings. 
+        I do not believe my 1-10 rating sufficiently communicates the value of a given book. </p>
+
+    <p> 🔍 You can search for a book by title, author, or category. Clicking any of the categories below will filter the results. </p>
+    </p>
+    <hr/>
+    </div>
+</div>
+<div class="row">
+    {% for book in books %}
+    <h4><a href="#">{{ book.title }}</a></h4>
+    <p>{{ book.slug }}</h4>
+    {% empty %}
+    <h3>No books added so far</h3>
+    {% endfor %}
+</div>
+
+{% endblock %}
