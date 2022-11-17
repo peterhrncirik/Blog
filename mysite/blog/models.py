@@ -77,6 +77,7 @@ class Book(models.Model):
     title = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250, unique_for_date='publish')
     author = models.CharField(max_length=100)
+    about = models.CharField(max_length=250, default='Best book ever')
     body = models.TextField()
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
@@ -85,6 +86,7 @@ class Book(models.Model):
     objects = models.Manager()
     published = PublishedManager()
     tags = TaggableManager()
+    image = models.ImageField(upload_to='images', null=True, blank=True, default="no_img.jpg")
 
     class Meta:
         ordering = ['publish']

@@ -26,19 +26,52 @@
     color: #0dcaf0;
 }
 
-/* Latest book notes */
-.card {
+/* Latest Book Notes Main Page */
+.card-main-page {
     background-color: #212529;
     height: 200px;
     border: 0;
 }
 
-.card-img {
+.card-img-main-page {
     width: 100%;
     height: 100%;
     padding: 2px;
 }
 
-.card-img:hover{
+.card-img-main-page:hover{
     border: 2px solid #0dcaf0;
+}
+
+/* Books - Cards */
+.card-books-page {
+    background-color: #212529;
+    /* height: 200px; */
+    min-height: 220px;
+    min-width: 180px;
+    border: 0;
+}
+
+.card-body.card-books-page {
+    padding: 0;
+    /* padding-left: 15px; */
+}
+
+.card-img-books-page {
+    width: 0;
+    height: 0;
+    min-width: 76%;
+    min-height: 100%;
+    max-width: 76%;
+    max-height: 100%;
+    border-radius: 13px;
+    /* padding: 2px; */
+}
+
+.link-info {
+    text-decoration: none;
+}
+
+.link-info:hover {
+    text-decoration: underline;
 }

@@ -3,30 +3,40 @@
 {% block content %}
 <div class="row my-5">
     <div class="col">
-    <h1>Books</h1>
-    <p> Some of the most important lessons I have learned are from books I have read. <br/> The habit of reading books and writing down the key insights have been life-changing.<br/>
-         
-    <p> I'm sharing my notes with you, in hopes that you will get as much from them as I have. </p>
-
-    <p> Feel free to add me on GoodReads to see which books I'm reading. </p>
-
-    <p> The latest book is The 7 Habits of Highly Effective People by Stephen R. Covey. </p>
-
-    <p> 📕 Click on the book title or image to read my notes. I have included a short summary of my thoughts on each book, yet omitted ratings. 
-        I do not believe my 1-10 rating sufficiently communicates the value of a given book. </p>
-
+    <h1>Books 📚</h1>
+    <p> Books are an amazing learning tool. </p> 
+    <p> Below you can find some of the books I have already finished and made some notes along the way. </p>
+    <p> You can add me on GoodReads as well. </p>
     <p> 🔍 You can search for a book by title, author, or category. Clicking any of the categories below will filter the results. </p>
-    </p>
     <hr/>
+    <form>
+      <div class="mb-3">
+        <input type="search" class="form-control" id="find_book" aria-describedby="find_book" placeholder="Search book">
+      </div>
+    </form>
     </div>
 </div>
-<div class="row">
-    {% for book in books %}
-    <h4><a href="#">{{ book.title }}</a></h4>
-    <p>{{ book.slug }}</h4>
-    {% empty %}
-    <h3>No books added so far</h3>
-    {% endfor %}
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        {% for book in books %}
+        <div class="col">
+        <div class="card card-books-page">
+            <div class="row g-0">
+              <div class="col-md-6">
+                <img src="{{ book.image.url }}" class="card-img-books-page" alt="{{ book.title }} book cover image">
+              </div>
+              <div class="col-md-6">
+                <div class="card-body card-books-page">
+                  <h5 class="card-title"><a href="#" class="link-info stretched-link">{{ book.title }}</a></h5>
+                  <p class="card-text"><small class="text-muted">{{ book.author }}</small></p>
+                  <p class="card-text">{{ book.body }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+  </div>
 </div>
 
 {% endblock %}
