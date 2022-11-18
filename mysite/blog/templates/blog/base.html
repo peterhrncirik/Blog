@@ -15,26 +15,21 @@
 <body class="bg-dark text-white">
     <div class="container">
         <div class="row">
-            <div class="col-6 mx-auto mt-5">
-                <nav class="navbar navbar-expand-lg">
+            <div class="col-11 col-md-10 col-lg-8 mx-auto mt-5">
+                <nav class="navbar navbar-expand">
                     <div class="container-fluid">
-                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                      </button>
-                      <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
                         <div class="navbar-nav">
                           <a class="nav-link text-white" aria-current="page" href="{% url 'blog:index' %}">Home</a>
                           <a class="nav-link text-white" href="{% url 'blog:blog' %}">Blog</a>
                           <a class="nav-link text-white" href="{% url 'blog:books' %}">Books</a>
                           <a class="nav-link text-white" href="{% url 'blog:books' %}">Projects</a>
                         </div>
-                      </div>
                     </div>
                   </nav>
             </div>
         </div>
         <div class="row">
-            <div class="col-8 mx-auto">
+            <div class="col-10 col-md-8 mx-auto">
                 {% block content %}
                 {% endblock %}
             </div>

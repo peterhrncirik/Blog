@@ -15,8 +15,9 @@ from django.db.models import Count
 # Main page
 def index(request):
 
+    books = Book.published.order_by('-publish')[:4]
     latest_posts = Post.published.order_by('-publish')[:3]
-    return render(request, 'index.html', {'latest_posts': latest_posts})
+    return render(request, 'index.html', {'latest_posts': latest_posts, 'books': books})
 
 # Blog section
 def post_list(request, tag_slug=None):
@@ -42,14 +43,11 @@ def post_list(request, tag_slug=None):
 
     return render(request, 'blog/post/list.html', {'posts': posts, 'tag': tag, 'tags': tags})
 
-def post_detail(request, year, month, day, post):
+def post_detail(request, post):
 
     post = get_object_or_404(Post, 
                             status=Post.Status.PUBLISHED, 
-                            slug=post,
-                            publish__year=year, 
-                            publish__month=month, 
-                            publish__day=day)
+                            slug=post)
 
     # list active comments
     comments = post.comments.filter(active=True)
