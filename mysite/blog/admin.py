@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Comment, Book
+from .models import Post, Comment, Book, Topic
 
 # Register your models here.
 @admin.register(Post)
@@ -26,3 +26,7 @@ class BookAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     date_hierarchy = 'publish'
     ordering = ['status', 'publish']
+
+@admin.register(Topic)
+class TopicAdmin(admin.ModelAdmin):
+    list_display = ['name']

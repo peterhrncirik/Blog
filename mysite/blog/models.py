@@ -14,6 +14,12 @@ class PublishedManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(status=Post.Status.PUBLISHED)
 
+class Topic(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
 class Post(models.Model):
     
     class Status(models.TextChoices):
@@ -31,6 +37,7 @@ class Post(models.Model):
     objects = models.Manager()
     published = PublishedManager()
     tags = TaggableManager()
+    topics = models.ManyToManyField(Topic, blank=True)
 
     class Meta:
         ordering = ['-publish']
