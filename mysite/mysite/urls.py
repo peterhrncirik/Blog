@@ -19,15 +19,18 @@ from django.contrib.sitemaps.views import sitemap
 from blog.sitemaps import PostSitemap
 from django.conf import settings
 from django.conf.urls.static import static
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
 
 sitemaps = {
     'posts': PostSitemap,
 }
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path(env('ADMIN'), admin.site.urls),
     path('', include('blog.urls', namespace='blog')),
-    # path('blog/', include('blog.urls', namespace='blog')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ]
 if settings.DEBUG:
