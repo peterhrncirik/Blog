@@ -90,8 +90,13 @@ def post_search(request):
     return render(request, 'blog/post/search.html', {'form': form, 'query': query, 'results': results})
 
 # Books section
-def books(request):
+def books(request, tag_slug=None):
 
     books = Book.objects.all()
+    tags = Tag.objects.all()
+    tag = None
+    if tag_slug:
+        tag = get_object_or_404(Tag, slug=tag_slug)
+        books = books.filter(tags__in=[tag])
 
-    return render(request, 'books/books.html', {'books': books})
+    return render(request, 'books/books.html', {'books': books, "tags": tags})

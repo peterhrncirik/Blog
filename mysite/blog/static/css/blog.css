@@ -111,3 +111,23 @@
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
 }
+
+/* Blog Section */
+.card.card-blog a {
+    border: none;
+    color: #fff;
+    text-decoration: none;
+}
+
+.card.card-blog a:hover {
+    color: #0dcaf0;
+    border: none;
+}
+
+.card.card-blog {
+    background-color: #212529;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.card.card-blog:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}

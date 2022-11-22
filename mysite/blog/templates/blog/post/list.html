@@ -29,16 +29,20 @@
         <div class="col">
             <h4 class="text-center">2022</h4>
             {% for post in posts %}
-            <div class="list-group m-1">
-                <a href="{{ post.get_absolute_url }}" class="list-group-item list-group-item-action" aria-current="true">
-                  <div class="d-flex w-100 justify-content-between">
-                    <h4 class="mb-1">{{ post.title }}</h4>
-                    <!-- <small>#{{ post.tags.all|join:" #" }}</small> -->
-                  </div>
-                  <p class="mb-1 text-white-50">{{ post.body|truncatewords_html:10 }}</p>
-                </a>
+            <div class="col">
+              <div class="card card-blog m-1">
+                <div class="card-body">
+                  {% for topic in post.topics.all %}
+                  <span class="badge bg-secondary my-2">{{ topic }}</span>
+                  {% endfor %}
+                  <h5 class="card-title fw-semibold"><a href="{{ post.get_absolute_url }}" class="stretched-link" aria-current="true">{{ post.title }}</a></h5>
+                  <p class="card-text text-muted">{{ post.body|truncatewords_html:10 }}</p>
+                  {% comment %} <p class="card-text"><small class="text-muted">{{ post.created|date:'F j, Y' }}</small></p> {% endcomment %}
+                </div>
               </div>
+            </div>
             {% endfor %}
+
         </div>
     </div>
 <!-- 
