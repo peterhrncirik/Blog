@@ -12,13 +12,16 @@
     {% comment %} <h3>Categories</h3> {% endcomment %}
     <form>
       <div class="mb-3">
-        <input type="search" class="form-control" id="find_book" aria-describedby="find_book" placeholder="Search book">
+        <form>
+          <input type="search" name='query' class="form-control" id="query" aria-describedby="query" placeholder="Search book" hx-post='/search-books/' hx-trigger='keyup changed delay:500ms' hx-target='#main'>
+          {% csrf_token %}
+        </form>
       </div>
     </form>
     </div>
 </div>
 <div class="container">
-    <div class="row row-cols-1 row-cols-lg-2 g-3">
+    <div class="row row-cols-1 row-cols-lg-2 g-3" id='main'>
         {% for book in books %}
         <div class="col">
         <div class="card bg-dark border-0">

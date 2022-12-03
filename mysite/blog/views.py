@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Post, Comment, Book
 from django.contrib.postgres.search import TrigramSimilarity
 from .forms import CommentForm, SearchForm
-from django.http import Http404
+from django.http import Http404, HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import ListView
 from django.views.decorators.http import require_POST
@@ -100,3 +100,29 @@ def books(request, tag_slug=None):
         books = books.filter(tags__in=[tag])
 
     return render(request, 'books/books.html', {'books': books, "tags": tags})
+
+# Projects section
+def projects(request):
+    
+    return render(request, 'projects/projects.html')
+
+# SEARCH VIEWS
+def search_books(request):
+    
+    query = request.POST.get('query')
+    queryset = Book.published.filter(title__icontains=query)
+    
+    if queryset:
+        return render(request, 'books/search.html', {'books': queryset})
+    else:
+        return HttpResponse('')
+    
+def search_blog(request):
+    
+    query = request.POST.get('query')
+    queryset = Post.published.filter(title__icontains=query)
+    
+    if queryset:
+        return render(request, 'blog/post/search.html', {'posts': queryset})
+    else:
+        return HttpResponse('')

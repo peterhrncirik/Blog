@@ -11,6 +11,7 @@
     {% bootstrap_css %}
     {% bootstrap_javascript %}
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <script src="https://unpkg.com/htmx.org@1.8.4" integrity="sha384-wg5Y/JwF7VxGk4zLsJEcAojRtlVp1FKKdGy1qN+OMtdq72WRvX/EdRdqg/LOhYeV" crossorigin="anonymous"></script>
 </head>
 <body class="bg-dark text-white">
     <div class="container">
@@ -22,7 +23,7 @@
                           <a class="nav-link text-white" aria-current="page" href="{% url 'blog:index' %}">Home</a>
                           <a class="nav-link text-white" href="{% url 'blog:blog' %}">Blog</a>
                           <a class="nav-link text-white" href="{% url 'blog:books' %}">Books</a>
-                          <a class="nav-link text-white" href="{% url 'blog:books' %}">Projects</a>
+                          <a class="nav-link text-white" href="{% url 'blog:projects' %}">Projects</a>
                         </div>
                     </div>
                   </nav>
@@ -34,10 +35,6 @@
                 {% endblock %}
             </div>
         </div>
- 
-
-
-        
     </div>
 </body>
 </html>

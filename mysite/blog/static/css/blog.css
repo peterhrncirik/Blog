@@ -131,3 +131,80 @@
 .card.card-blog:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
+
+/* Projects */
+.carousel img {
+    border: 1px solid #ccc;
+    border-radius: 15px;
+
+}
+
+.carousel {
+    border-radius: 15px;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(30,30,117,1) 35%, rgba(41,120,136,1) 100%); 
+}
+
+.carousel:hover img {
+    opacity: .2;
+    transition: all .6s;
+}
+
+/* .carousel:hover .info {
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+} */
+
+.carousel .carousel-control-prev,
+.carousel .carousel-control-next
+{
+    visibility: hidden;
+    opacity: 1;
+}
+
+.carousel:hover .carousel-control-prev,
+.carousel:hover .carousel-control-next
+{
+    visibility: visible;
+    animation-duration: 1s;
+    transition-timing-function: linear;
+}
+
+.carousel:hover .carousel-control-prev
+{
+    animation-name: FadeInPrev;
+}
+
+.carousel:hover .carousel-control-next
+{
+    animation-name: FadeInNext;
+}
+
+@keyframes FadeInPrev
+{
+    0%
+    {
+        opacity: 0;
+        padding-left: 40px;
+    }
+    100%
+    {
+        opacity: 1;
+        padding-left: 0px;
+    }
+}
+
+@keyframes FadeInNext
+{
+    0%
+    {
+        opacity: 0;
+        padding-right: 40px;
+    }
+    100%
+    {
+        opacity: 1;
+        padding-right: 0px;
+    }
+}

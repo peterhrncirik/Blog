@@ -5,9 +5,10 @@
     <div class="row">
         <div class="col">
             <h1 class="my-4">Blog ✍️</h1>
-            <form action="">
-                <input type="search" class="form-control text-dark" name="search" id="" placeholder="Search articles">
-            </form>
+            <form>
+                <input type="search" name='query' class="form-control" id="query" aria-describedby="query" placeholder="Search posts" hx-post='/search-blog/' hx-trigger='keyup changed delay:500ms' hx-target='#main'>
+                {% csrf_token %}
+              </form>
         </div>
     </div>
     <div class="row my-5">
@@ -26,7 +27,7 @@
         <!-- {% if tag %}
         <h2>Posts tagged with {{ tag.name }}</h2>
         {% endif %} -->
-        <div class="col">
+        <div class="col" id='main'>
             <h4 class="text-center">2022</h4>
             {% for post in posts %}
             <div class="col">
