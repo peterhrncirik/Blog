@@ -13,9 +13,10 @@
                   <h1 class="card-title">Hi, I'm <span class="text-info">Peter </span>🖐</h1>
                   <ul class="mt-4">
                     <li>I love <span class="text-info">Learning</span> new things</li>
+                    <li>I am learning <a href="{% url 'blog:learning' %}" class="link-info"><i>Python</i></a></li>
                     <li>I read <a href="{% url 'blog:books' %}" class="link-info"><i>Books</i></a></li>
                     <li>I write <a href="{% url 'blog:blog' %}" class="link-info"><i>Articles</i></a></li>
-                    <li>I build <a href="#" class="link-info"><i>Projects</i></a></li>
+                    <li>I build <a href="{% url 'blog:projects' %}" class="link-info"><i>Projects</i></a></li>
                   </ul>
                 </div>
               </div>
@@ -40,7 +41,7 @@
         </div>
     </div> {% endcomment %}
 
-    <div class="row text-center">
+    {% comment %} <div class="row text-center">
         <div class="col">
             <h3>Join the newsletter.</h3>
             <p>Let me send you the best of what I discover on the internet, what I've learned, and what I'm working on. No spam, ever. Unsubscribe at any time. Take a peek.</p>
@@ -60,7 +61,7 @@
         </svg>Submit</button>
       </div>
     </form>
-  </div>
+  </div> {% endcomment %}
 
 
 

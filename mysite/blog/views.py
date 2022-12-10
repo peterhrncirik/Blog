@@ -106,6 +106,11 @@ def projects(request):
     
     return render(request, 'projects/projects.html')
 
+# Learning section
+def learning(request):
+    
+    return render(request, 'learning/learning.html')
+
 # SEARCH VIEWS
 def search_books(request):
     

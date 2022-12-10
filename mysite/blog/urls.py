@@ -24,4 +24,7 @@ urlpatterns = [
    
    # Projects
    path('projects/', views.projects, name='projects'),
+   
+   # Projects
+   path('learning/', views.learning, name='learning'),
 ]
