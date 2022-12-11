@@ -8,6 +8,7 @@ from django.views.generic import ListView
 from django.views.decorators.http import require_POST
 from taggit.models import Tag
 from django.db.models import Count
+from django.db.models import Q
 
 
 # Create your views here.
@@ -115,7 +116,7 @@ def learning(request):
 def search_books(request):
     
     query = request.POST.get('query')
-    queryset = Book.published.filter(title__icontains=query)
+    queryset = Book.published.filter(Q(title__icontains=query)|Q(tags__name__icontains=query)).distinct()
     
     if queryset:
         return render(request, 'books/search.html', {'books': queryset})
@@ -125,7 +126,7 @@ def search_books(request):
 def search_blog(request):
     
     query = request.POST.get('query')
-    queryset = Post.published.filter(title__icontains=query)
+    queryset = Post.published.filter(Q(title__icontains=query)|Q(tags__name__icontains=query)|Q(topics__name__icontains=query)).distinct()
     
     if queryset:
         return render(request, 'blog/post/search.html', {'posts': queryset})
