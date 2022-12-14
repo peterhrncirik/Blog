@@ -29,6 +29,19 @@
     box-shadow:none;
 }
 
+/* Blog details & Markdown */
+.blog-style h1, h2, h3, h4, h5, h6 {
+    color: #2196f3;
+    font-weight: 600;
+}
+
+.blog-style strong, em {
+    color: #ff8a80;
+}
+
+.blog-style a {
+    color: #4dd0e1;
+}
 
 
 /* Latest blog posts */

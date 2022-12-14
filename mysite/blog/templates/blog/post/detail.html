@@ -2,7 +2,7 @@
 {% load blog_tags %}
 {% block title%}{{ post.title }}{% endblock %}
 {% block content %}
-    <div class="row text-center m-5">
+    <div class="row text-center mt-5 mb-3">
         <div class="col">
             <h1>{{ post.title }}</h1>
             <p class="date">
@@ -12,20 +12,22 @@
         </div>
     </div>
     <div class="row">
-        <div class="col">
+        <div class="col blog-style">
             {{ post.body|markdown}}
         </div>
     </div>
     <div class="row my-5">
         <div class="col">
-            <h5>You may also like:</h5>
+            <h5 class="text-white">You may also like:</h5>
+            <ul>
             {% for post in similar_posts %}
-            <p>
-                <a href="{{ post.get_absolute_url }}">
-                    {{ post.title }}
-                </a>
-            </p>
-            {% empty %}
+                <li>
+                    <a href="{{ post.get_absolute_url }}" class="link-info">
+                        {{ post.title }}
+                    </a>
+                </li>
+                {% empty %}
+            </ul>
             There are no similar posts yet.
             {% endfor %}
         </div>
