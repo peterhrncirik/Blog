@@ -17,7 +17,7 @@ from django.db.models import Q
 def index(request):
 
     books = Book.published.order_by('-publish')[:4]
-    latest_posts = Post.published.order_by('-publish')[:3]
+    latest_posts = Post.published.order_by('-publish')[:4]
     return render(request, 'index.html', {'latest_posts': latest_posts, 'books': books})
 
 # Blog section
@@ -30,7 +30,7 @@ def post_list(request, tag_slug=None):
         tag = get_object_or_404(Tag, slug=tag_slug)
         post_list = post_list.filter(tags__in=[tag])
     # Pagination
-    paginator = Paginator(post_list, 3)
+    paginator = Paginator(post_list, 8)
     page_number = request.GET.get('page', 1)
 
     try:

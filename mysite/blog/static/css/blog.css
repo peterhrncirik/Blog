@@ -208,3 +208,10 @@
         padding-right: 0px;
     }
 }
+
+
+@media (max-width: 768px) { 
+    .img-thumbnail {
+        max-width: 70%;
+    }
+ }
