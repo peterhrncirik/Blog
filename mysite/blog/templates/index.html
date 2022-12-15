@@ -1,6 +1,6 @@
 {% extends 'blog/base.html' %}
 {% load blog_tags %}
-{% block title %}My Blog{% endblock %}
+{% block title %}Home | Peter Hrncirik{% endblock %}
 {% block content %}
     <div class="row">
         <div class="card my-2 my-md-5 bg-dark border-0 mx-auto" style="max-width: 600px;">
@@ -73,6 +73,7 @@
                   <div class="card-body">
                     {% for topic in post.topics.all %}
                     <span class="badge bg-secondary my-2">{{ topic }}</span>
+                    {% comment %} <span class="badge my-2 {% if topic.name == 'python' %}text-bg-primary{% elif topic.name == 'TIL' %}text-bg-success{% endif %}">{{ topic }}</span> {% endcomment %}
                     {% endfor %}
                     <h3 class="card-title fw-semibold"><a href="{{ post.get_absolute_url }}" class="stretched-link" aria-current="true">{{ post.title }}</a></h3>
                     <p class="card-text">{{ post.summary|truncatewords_html:10 }}</p>

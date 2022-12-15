@@ -1,5 +1,5 @@
 {% extends 'blog/base.html' %}
-{% block title %}My projects{% endblock title %}
+{% block title %}Projects | Peter Hrncirik{% endblock title %}
 {% block content %}
 <div class="row my-5">
   <div class="col">
@@ -7,108 +7,109 @@
       <p>Here you can find some of the things I have built. I'm still learning, building new things and/or refactoring older projects.</p> 
       <hr />
   </div>
-  <div class="card bg-dark text-white m-3 border-secondary">
+  <div class="card bg-dark text-white m-3 card-project">
     <div class="card-header">
       <span class="badge text-bg-primary">Python</span>
       <span class="badge text-bg-success">Django</span>
       <span class="badge text-bg-warning">JavaScript</span>
       <span class="badge text-bg-info">Bootstrap</span>
       <span class="badge text-bg-secondary">HTML/CSS</span>
-      <span class="badge text-bg-secondary">Git Version Control</span>
       <span class="badge text-bg-danger">Google Books API</span>
+      <span class="badge text-bg-warning">AWS Lightsail</span>
+      <span class="badge text-bg-light">Git Version Control</span>
 
     </div>
     <div class="card-body">
-      <h5 class="card-title fw-semibold">Books web-application</h5>
+      <h5 class="card-title fw-semibold text-info">Books web-application</h5>
       <p class="card-text">First fully-featured web-app built in Django framework.</p>
       <p class="card-text">Place where people exchange used books. Had it online in production with few real users, now only as a public project.</p>
       <p class="card-text">It took me few months to finish and I learned a lot of things. Looking back at code now I would write a lot of code differently, but it was a good learning challenge.</p>
-      <a href="https://booksapp.pythonanywhere.com/" class="btn btn-danger btn-sm fw-bold">Books application</a>
-      <a href="https://github.com/peterhrncirik/Books" class="btn btn-info btn-sm fw-bold">GitHub</a>
+      <a href="https://booksapp.pythonanywhere.com/" class="btn btn-outline-danger fw-bold btn-sm">Books application</a>
+      <a href="https://github.com/peterhrncirik/Books" class="btn btn-outline-light fw-bold btn-sm">GitHub</a>
     </div>
   </div>
-  <div class="card bg-dark text-white m-3 border-secondary">
+  <div class="card bg-dark text-white m-3 card-project">
     <div class="card-header">
       <span class="badge text-bg-primary">Python</span>
       <span class="badge text-bg-danger">Automation</span>
       <span class="badge text-bg-warning">Webscraping</span>
-      <span class="badge text-bg-secondary">Git Version Control</span>
+      <span class="badge text-bg-light">Git Version Control</span>
     </div>
     <div class="card-body">
-      <h5 class="card-title fw-semibold">Anki workflow automation</h5>
+      <h5 class="card-title text-info fw-semibold">Anki workflow automation</h5>
       <p class="card-text">My automation for creating language cards in Anki. I write about it <a class="link-info" href="https://www.peterhrncirik.com/blog/automating-my-anki-workflow/">in this post</a>. Still working on it, refactoring and adding new features.</p>
-      <a href="https://github.com/peterhrncirik/anki-workflow" class="btn btn-info btn-sm fw-bold">GitHub</a>
+      <a href="https://github.com/peterhrncirik/anki-workflow" class="btn btn-outline-light fw-bold btn-sm">GitHub</a>
     </div>
   </div>
-  <div class="card bg-dark text-white m-3 border-secondary">
+  <div class="card bg-dark text-white m-3 card-project">
     <div class="card-header">
       <span class="badge text-bg-primary">Python</span>
       <span class="badge text-bg-danger">Automation</span>
       <span class="badge text-bg-warning">Webscraping</span>
-      <span class="badge text-bg-secondary">Git Version Control</span>
+      <span class="badge text-bg-light">Git Version Control</span>
     </div>
     <div class="card-body">
-      <h5 class="card-title fw-semibold">Jobsearching automation</h5>
+      <h5 class="card-title text-info fw-semibold">Jobsearching automation</h5>
       <p class="card-text">Looking for a job can be very challenging. Sorting through the options and finding the most suitable ones. Built this tool to check open positions, analyze description, match if text contains keywords I'm looking for and send me an email. Still working on it and adding new features.</p>
-      <a href="https://github.com/peterhrncirik/job-scraper" class="btn btn-info btn-sm fw-bold">GitHub</a>
+      <a href="https://github.com/peterhrncirik/job-scraper" class="btn btn-outline-light fw-bold btn-sm">GitHub</a>
     </div>
   </div>
-  <div class="card bg-dark text-white m-3 border-secondary">
+  <div class="card bg-dark text-white m-3 card-project">
     <div class="card-header">
       <span class="badge text-bg-danger">C</span>
-      <span class="badge text-bg-light">Algorithms</span>
-      <span class="badge text-bg-light">Data Structures</span>
-      <span class="badge text-bg-light">Databases</span>
-      <span class="badge text-bg-light">Arrays</span>
-      <span class="badge text-bg-light">Memory</span>
-      <span class="badge text-bg-secondary">Python, JavaScript, HTML/CSS, Flask</span>
+      <span class="badge text-bg-secondary">Algorithms</span>
+      <span class="badge text-bg-secondary">Data Structures</span>
+      <span class="badge text-bg-secondary">Databases</span>
+      <span class="badge text-bg-secondary">Arrays</span>
+      <span class="badge text-bg-secondary">Memory</span>
+      <span class="badge text-bg-warning">Python, JavaScript, HTML/CSS, Flask</span>
     </div>
     <div class="card-body">
-      <h5 class="card-title fw-semibold">Harvard's CS50</h5>
+      <h5 class="card-title text-info fw-semibold">Harvard's CS50</h5>
       <p class="card-text">My solutions to CS50 exercises. Best course I have been through.</p> 
       <p class="card-text">80% of the course was using C language, which is a really good introduction as it is low-level and requires programmer to explicitly write everything. </p>
       <p class="card-text">Later on the exercises got really challenging and I remember I was struggling with some exercises even for 2-3 weeks. But I wanted to find solution on my own in order to learn the stuff.</p>
-      <a href="https://github.com/peterhrncirik/Harvard-CS50" class="btn btn-info btn-sm fw-bold">GitHub</a>
+      <a href="https://github.com/peterhrncirik/Harvard-CS50" class="btn btn-outline-light fw-bold btn-sm">GitHub</a>
     </div>
   </div>
-  <div class="card bg-dark text-white m-3 border-secondary">
+  <div class="card bg-dark text-white m-3 card-project">
     <div class="card-header">
       <span class="badge text-bg-primary">Python</span>
     </div>
     <div class="card-body">
-      <h5 class="card-title fw-semibold">Harvard's CS50 Python</h5>
+      <h5 class="card-title text-info fw-semibold">Harvard's CS50 Python</h5>
       <p class="card-text">My solutions to CS50 Python exercises. Python deeper introduction.</p> 
       <p class="card-text">Plenty of exercises using mainly Python Standard Library, but also external libraries.</p>
-      <a href="https://github.com/peterhrncirik/Harvard-CS50" class="btn btn-info btn-sm fw-bold">GitHub</a>
+      <a href="https://github.com/peterhrncirik/Harvard-CS50" class="btn btn-outline-light fw-bold btn-sm">GitHub</a>
     </div>
   </div>
-  <div class="card bg-dark text-white m-3 border-secondary">
+  <div class="card bg-dark text-white m-3 card-project">
     <div class="card-header">
       <span class="badge text-bg-primary">Python</span>
       <span class="badge text-bg-warning">JavaScript</span>
       <span class="badge text-bg-success">Django</span>
       <span class="badge text-bg-success">Flask</span>
-      <span class="badge text-bg-primary">HTML/CSS</span>
-      <span class="badge text-bg-warning">API</span>
-      <span class="badge text-bg-danger">Git Version Control</span>
+      <span class="badge text-bg-secondary">HTML/CSS</span>
+      <span class="badge text-bg-danger">API</span>
+      <span class="badge text-bg-light">Git Version Control</span>
     </div>
     <div class="card-body">
-      <h5 class="card-title fw-semibold">Harvard's CS50’s Web Programming with Python and JavaScript</h5>
+      <h5 class="card-title text-info fw-semibold">Harvard's CS50’s Web Programming with Python and JavaScript</h5>
       <p class="card-text">Introduction to building web-apps. Basic knowledge I used to built my web-app projects.</p> 
     </div>
   </div>
-  <div class="card bg-dark text-white m-3 border-secondary">
+  <div class="card bg-dark text-white m-3 card-project">
     <div class="card-header">
       <span class="badge text-bg-primary">Python</span>
       <span class="badge text-bg-success">Flask</span>
       <span class="badge text-bg-warning">JavaScript</span>
-      <span class="badge text-bg-secondary">HTML/CSS</span>
-      <span class="badge text-bg-secondary">Google Books API</span>
+      <span class="badge text-bg-light">HTML/CSS</span>
+      <span class="badge text-bg-danger">Google Books API</span>
     </div>
     <div class="card-body">
-      <h5 class="card-title fw-semibold">Smaller Books application</h5>
+      <h5 class="card-title text-info fw-semibold">Smaller Books application</h5>
       <p class="card-text">Web-app built with Flask framework. Final project for the course CS50. Similar to my Django Books app, but very limited in futures and design. Just basic functionality pretty much.</p>
-      <a href="https://github.com/peterhrncirik/concise_app" class="btn btn-info btn-sm fw-bold">GitHub</a>
+      <a href="https://github.com/peterhrncirik/concise_app" class="btn btn-outline-light fw-bold btn-sm">GitHub</a>
     </div>
   </div>
   </div>

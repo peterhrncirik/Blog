@@ -5,7 +5,7 @@ from .models import Post, Comment, Book, Topic
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     list_display = ['title', 'slug', 'author', 'publish', 'status']
-    list_filter = ['status', 'publish', 'author']
+    list_filter = ['status', 'publish', 'author', 'topics']
     search_fields = ['title', 'body']
     prepopulated_fields = {'slug': ('title',)}
     raw_id_fields = ['author']

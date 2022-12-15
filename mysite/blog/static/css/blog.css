@@ -30,7 +30,7 @@
 }
 
 /* Blog details & Markdown */
-.blog-style h1, h2, h3, h4, h5, h6 {
+.blog-style :is(h1, h2, h3, h4, h5, h6) {
     color: #2196f3;
     font-weight: 600;
 }
@@ -41,6 +41,11 @@
 
 .blog-style a {
     color: #4dd0e1;
+}
+
+.card-project {
+    /* border: 1px solid rgba(255, 255, 255, 0.09); */
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 
