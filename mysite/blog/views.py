@@ -141,6 +141,6 @@ def blog_tags(request, tag_slug=None):
     if tag_slug:
         tag = get_object_or_404(Tag, slug=tag_slug)
         post_list = post_list.filter(tags__in=[tag])
-        return render(request, 'blog/post/search.html', {'posts': post_list})
+        return render(request, 'blog/post/search.html', {'posts': post_list, 'tag': tag, 'tags': tags})
     else:
         return HttpResponse('')
