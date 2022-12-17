@@ -18,7 +18,7 @@
             <div class="col d-flex">
                 {% for tag in tags %}
                 <div>
-                    <a href="{% url 'blog:post_list_by_tag' tag.slug %}" class="btn btn-outline-light btn-sm mx-2"><span class="text-info">#</span>{{ tag.name }}</a>
+                    <a hx-get="{% url 'blog:blog_tags' tag.slug %}" class="btn btn-outline-light mx-2 btn-sm"  hx-target='#main'><span class="text-info">#</span>{{ tag.name }}</a>
                 </div>
                 {% endfor %}
             </div>
