@@ -82,7 +82,7 @@ class Book(models.Model):
     title = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250, unique_for_date='publish')
     author = models.CharField(max_length=100)
-    about = models.CharField(max_length=250, default='Best book ever')
+    about = models.TextField(blank=True)
     body = models.TextField()
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)

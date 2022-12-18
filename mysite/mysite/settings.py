@@ -43,12 +43,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog.apps.BlogConfig',
-    'taggit',
-    'debug_toolbar',
     'django.contrib.sites',
     'django.contrib.sitemaps',
+    # debug
+    'debug_toolbar',
+    'django_browser_reload',
+    # external
     'django_bootstrap5',
+    'taggit',
+    # local
+    'blog.apps.BlogConfig',
 ]
 
 MIDDLEWARE = [
@@ -60,6 +64,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_browser_reload.middleware.BrowserReloadMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'

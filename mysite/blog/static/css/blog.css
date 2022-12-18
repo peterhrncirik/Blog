@@ -227,9 +227,17 @@
     }
 }
 
+/* Home Page Picture Media Queries */
 
-@media (max-width: 768px) { 
+.img-thumbnail {
+    width: 180px;
+    height: 240px;
+}
+
+@media (max-width: 576px) { 
     .img-thumbnail {
-        max-width: 70%;
+        width: 170px;
+        height: 220px;
     }
  }
+

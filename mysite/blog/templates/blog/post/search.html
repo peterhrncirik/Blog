@@ -4,12 +4,15 @@
   <hr />
 </div>
 {% endif %} {% endcomment %}
+<h4 class="text-center">2022</h4>
+<hr />
 {% for post in posts %}
             <div class="col">
               <div class="card card-blog m-1">
                 <div class="card-body">
                   {% for topic in post.topics.all %}
-                  <span class="badge bg-secondary my-2">{{ topic }}</span>
+                  {% comment %} <span class="badge bg-secondary my-2">{{ topic }}</span> {% endcomment %}
+                  <span class="badge my-2 {% if topic.name == 'Python' %}text-bg-primary{% elif topic.name == 'TIL' %}text-bg-secondary{% elif topic.name == 'Django' %}text-bg-success{% elif topic.name == 'Automation' %}text-bg-warning{% else %}text-bg-secondary{% endif %}">{{ topic }}</span>
                   {% endfor %}
                   <h5 class="card-title fw-semibold"><a href="{{ post.get_absolute_url }}" class="stretched-link" aria-current="true">{{ post.title }}</a></h5>
                   <p class="card-text text-muted">{{ post.summary|truncatewords_html:10 }}</p>

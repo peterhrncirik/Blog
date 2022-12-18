@@ -18,7 +18,17 @@
 <body class="bg-dark text-white">
     <div class="container">
         <div class="row">
-            <div class="col-11 col-md-10 col-lg-8 mx-auto mt-5">
+            <div class="col-12 col-md-10 col-lg-8 mx-auto mt-2 mt-md-4">
+                {% comment %} B5 DEBUGGER {% endcomment %}
+                {% comment %} <div class="text-nowrap d-block rounded-3 p-1 my-3 bg-info opacity-50">
+                    <div class="d-block d-sm-none">Extra Small (xs)</div>
+                    <div class="d-none d-sm-block d-md-none">Small (sm)</div>
+                    <div class="d-none d-md-block d-lg-none">Medium (md)</div>
+                    <div class="d-none d-lg-block d-xl-none">Large (lg)</div>
+                    <div class="d-none d-xl-block d-xxl-none">X-Large (xl)</div>
+                    <div class="d-none d-xxl-block">XX-Large (xxl)</div>
+                  </div> {% endcomment %}
+                  {% comment %} END B5 DEBUGGER {% endcomment %}
                 <nav class="navbar navbar-expand">
                     <div class="container-fluid">
                         <div class="navbar-nav">
@@ -33,7 +43,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-10 col-md-8 mx-auto">
+            <div class="col-11 col-md-9 mx-auto">
                 {% block content %}
                 {% endblock %}
             </div>

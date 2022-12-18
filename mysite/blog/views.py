@@ -102,6 +102,15 @@ def books(request, tag_slug=None):
 
     return render(request, 'books/books.html', {'books': books, "tags": tags})
 
+
+def book_detail(request, book):
+    
+    book = get_object_or_404(Book,
+                            status=Post.Status.PUBLISHED, 
+                            slug=book)
+    
+    return render(request, 'books/detail.html', {'book': book})
+
 # Projects section
 def projects(request):
     

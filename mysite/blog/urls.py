@@ -20,7 +20,7 @@ urlpatterns = [
 
     # Books
    path('books/', views.books, name='books'),
-#    path('book/<slug:book>/', views.book_detail, name='book_detail'),
+   path('book/<slug:book>/', views.book_detail, name='book_detail'),
    path('search-books/', views.search_books, name='search_books'),
    
    # Projects
