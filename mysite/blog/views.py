@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Post, Comment, Book
+from .models import Post, Comment, Book, Topic
 from django.contrib.postgres.search import TrigramSimilarity
 from .forms import CommentForm, SearchForm
 from django.http import Http404, HttpResponse
@@ -24,6 +24,7 @@ def index(request):
 def post_list(request, tag_slug=None):
     
     post_list = Post.published.all()
+    topics = Topic.objects.all()
     tags = Tag.objects.all()
     tag = None
     if tag_slug:
@@ -42,7 +43,7 @@ def post_list(request, tag_slug=None):
         # page num out-of-range
         posts = paginator.page(paginator.num_pages)
 
-    return render(request, 'blog/post/list.html', {'posts': posts, 'tag': tag, 'tags': tags})
+    return render(request, 'blog/post/list.html', {'posts': posts, 'tag': tag, 'tags': tags, 'topics': topics})
 
 def post_detail(request, post):
 
@@ -151,5 +152,17 @@ def blog_tags(request, tag_slug=None):
         tag = get_object_or_404(Tag, slug=tag_slug)
         post_list = post_list.filter(tags__in=[tag])
         return render(request, 'blog/post/search.html', {'posts': post_list, 'tag': tag, 'tags': tags})
+    else:
+        return HttpResponse('')
+    
+def blog_topics(request, topic_slug=None):
+    
+    post_list = Post.published.all()
+    topics = Topic.objects.all()
+    topic = None
+    if topic_slug:
+        topic = get_object_or_404(Topic, slug=topic_slug)
+        post_list = post_list.filter(topics__in=[topic])
+        return render(request, 'blog/post/search.html', {'posts': post_list, 'topic': topic, 'topics': topics})
     else:
         return HttpResponse('')

@@ -14,6 +14,7 @@ urlpatterns = [
     path('blog/<int:post_id>/comment/', views.post_comment, name='post_comment'),
     path('search-blog/', views.search_blog, name='search_blog'),
     path('blog/tag/<slug:tag_slug>/', views.blog_tags, name='blog_tags'),
+    path('blog/topic/<slug:topic_slug>/', views.blog_topics, name='blog_topics'),
 
     # Search
     path('search/', views.post_search, name='post_search'),

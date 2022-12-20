@@ -13,9 +13,22 @@
     </div>
     <div class="row my-3 my-md-4">
 
+      <div class="row mb-4">
+        <div class="col-12 d-md-flex align-items-center">
+            <h6 class="mx-3">Topics:</h6>
+            {% for topic in topics %}
+                {% if topic.name == 'TIL' %}
+                <a hx-get="{% url 'blog:blog_topics' topic.slug %}" class="btn btn-outline-light m-1 btn-sm"  hx-target='#main'>Today I Learned</a>
+                {% else %}
+                <a hx-get="{% url 'blog:blog_topics' topic.slug %}" class="btn m-1 btn-sm {% if topic.name == 'Automation' %}btn-warning{% elif topic.name == 'Django' %}btn-success{% elif topic.name == 'Python' %}btn-primary{% else %}btn-secondary{% endif %}"  hx-target='#main'>{{ topic }}</a>
+                {% endif %}
+            {% endfor %}
+        </div>
+      </div>
 
           <div class="row mb-4">
-            <div class="col-12">
+            <div class="col-12 d-md-flex align-items-center">
+              <h6 class="mx-3">Tags:</h6>
                 {% for tag in tags %}
                     <a hx-get="{% url 'blog:blog_tags' tag.slug %}" class="btn btn-outline-light m-1 btn-sm"  hx-target='#main'><span class="text-info">#</span>{{ tag.name }}</a>
                 {% endfor %}

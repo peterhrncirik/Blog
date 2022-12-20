@@ -1,10 +1,10 @@
-.main-icons {
-    color: red;
-}
-
 /* Navigation */
 .navbar {
     color: #fff;
+}
+
+.navbar a:hover {
+    color: #4dd0e1 !important;
 }
 
 /* Utils */
