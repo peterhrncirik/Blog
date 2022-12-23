@@ -74,8 +74,9 @@
                     {% for topic in post.topics.all %}
                     {% comment %} <span class="badge bg-secondary my-2">{{ topic }}</span> {% endcomment %}
                     <span class="badge my-2 {% if topic.name == 'Python' %}text-bg-primary{% elif topic.name == 'TIL' %}text-bg-secondary{% elif topic.name == 'Django' %}text-bg-success{% elif topic.name == 'Automation' %}text-bg-warning{% else %}text-bg-secondary{% endif %}">{{ topic }}</span>
-                    {% endfor %}
-                    <h4 class="card-title fw-semibold"><a href="{{ post.get_absolute_url }}" class="stretched-link" aria-current="true">{{ post.title }}</a></h4>
+                    {% endfor %} 
+                    <h5 class="d-md-none card-title fw-semibold"><a href="{{ post.get_absolute_url }}" class="stretched-link" aria-current="true">{{ post.title }}</a></h5>
+                    <h4 class="d-none d-md-block card-title fw-semibold"><a href="{{ post.get_absolute_url }}" class="stretched-link" aria-current="true">{{ post.title }}</a></h4>
                     <p class="card-text">{{ post.summary|truncatewords_html:10 }}</p>
                     <p class="card-text"><small class="text-muted">{{ post.created|date:'F j, Y' }}</small></p>
                   </div>
@@ -88,11 +89,11 @@
     <div class="row mt-5">
         <h4>📚 Recent book notes</h4>
         <div class="row my-3 mx-auto">
-            <div class="col d-flex flex-row justify-content-evenly">
+            <div class="col d-flex flex-column flex-sm-row justify-content-evenly">
             {% for book in books %}
             <a href="{{ book.get_absolute_url }}" class="link-info">
             <div class="card bg-dark border-0">
-              <img src="{{ book.image.url }}" class="card-img rounded" alt="{{ book.title }} Book Cover Image">
+              <img src="{{ book.image.url }}" class="card-img rounded m-1 m-md-0" alt="{{ book.title }} Book Cover Image">
             </div>
           </a>
             {% endfor %}

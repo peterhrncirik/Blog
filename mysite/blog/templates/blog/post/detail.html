@@ -6,7 +6,7 @@
         <div class="col">
             <h1>{{ post.title }}</h1>
             <p class="date">
-                {{ post.publish|date:'F j, Y' }}
+                {{ post.publish|date:'F j, Y' }}   <span class="text-muted">| {{ post.body|readtime }}</span>
             </p>
             <hr />
         </div>
