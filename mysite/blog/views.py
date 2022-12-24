@@ -94,7 +94,7 @@ def post_search(request):
 # Books section
 def books(request, tag_slug=None):
 
-    books = Book.objects.all()
+    books = Book.published.order_by('-publish')
     tags = Tag.objects.all()
     tag = None
     if tag_slug:
